@@ -1,0 +1,26 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Home, Products, About, Contact } from "./pages";
+import { Navbar, Footer } from "./components";
+
+function App() {
+  return (
+    <Router>
+      <div className="bg-[#f5f5dc] text-[#2e7d32] font-sans min-h-screen">
+        <Navbar />
+        <div className="hero-section bg-[#2e7d32] text-white text-center py-20">
+          <h1 className="text-4xl font-bold">Welcome to SIAAR</h1>
+          <p className="text-lg mt-2">Luxury & Pre-Owned Fashion at Your Fingertips</p>
+          <Link to="/products" className="mt-4 inline-block bg-gold text-[#2e7d32] px-6 py-2 rounded-lg font-semibold">Shop Now</Link>
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
